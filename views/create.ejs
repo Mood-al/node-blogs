@@ -1,0 +1,28 @@
+<%- include('./partails/header') %>
+    <%- include('./partails/nav') %>
+
+        <div class="container my-4">
+
+            <form method="POST" action="/blogs">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">title</label>
+                    <input type="text" class="form-control" id="exampleInputtext1" name="title"
+                        aria-describedby="textHelp">
+
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">snippets</label>
+                    <textarea name="snippets" id="" cols="30" class="form-control" rows="10"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">body</label>
+                    <textarea name="body" id="" cols="30" class="form-control" rows="10"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">save</button>
+            </form>
+        </div>
+
+
+        <%- include('./partails/footer') %>
+
+            <%- include('./partails/scripts') %>

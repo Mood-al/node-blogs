@@ -1,0 +1,42 @@
+<%- include('./partails/header') %>
+    <%- include('./partails/nav') %>
+
+        <div class="container">
+
+            <div class="card my-card mt-4">
+
+                <div class="card-body">
+                    <p class="text-muted">
+                        <%= blog.snippets || 'there is no snippets' %>
+                    </p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <p>
+                        <%= blog.body %>
+                    </p>
+                    <span class="btn btn-danger delBtn" data-del="<%= blog._id  %> ">delete</span>
+                </div>
+
+            </div>
+
+
+        </div>
+        <script>
+            const delBtn = document.querySelector('.delBtn');
+            delBtn.addEventListener('click', e => {
+                // console.log(delBtn.dataset.del)
+                fetch(`/blogs/${delBtn.dataset.del}`, {
+                    method: 'DELETE',
+                }).then(res => {
+                    // console.log(res)
+                    return res.json();
+                }).then(res => {
+                    window.location.href = res.redirect;
+                })
+            })
+        </script>
+        <%- include('./partails/scripts') %>
+
+
+
+            <%- include('./partails/footer') %>
